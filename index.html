@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF--8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pronto Moto Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary-dark': '#2D3748',
+              'accent-green': '#009E4D',
+              'accent-red': '#E41E26',
+              'accent-orange': '#D95B00',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', "Liberation Mono", "Courier New", 'monospace'],
+            },
+            animation: {
+              scroll: 'scroll 40s linear infinite',
+              fadeIn: 'fadeIn 1s ease-out forwards',
+              fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+              fadeInDown: 'fadeInDown 0.8s ease-out forwards',
+              pulsate: 'pulsate 3.5s infinite ease-in-out',
+              kenburns: 'kenburns 15s ease-out both infinite',
+              slideInLeft: 'slideInLeft 1s ease-out forwards',
+              slideInRight: 'slideInRight 1s ease-out forwards',
+              pageFadeIn: 'pageFadeIn 0.5s ease-out forwards',
+              drawCircle: 'drawCircle 0.6s ease-out forwards',
+              drawCheck: 'drawCheck 0.4s ease-out forwards',
+              float: 'float 4s ease-in-out infinite',
+              'subtle-float-rotate': 'subtle-float-rotate 8s ease-in-out infinite',
+              'device-pop-in': 'device-pop-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.2s',
+              sweepNeedle: 'sweepNeedle 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              carZoomAndLift: 'carZoomAndLift 1.2s ease-in-out infinite',
+              carGlow: 'carGlow 1.2s ease-in-out infinite',
+              carColorPulse: 'carColorPulse 1.2s ease-in-out infinite',
+              'search-jiggle': 'search-jiggle 0.4s ease-in-out',
+              'glow-pulse': 'glow-pulse 3s infinite ease-in-out',
+              'animated-gradient': 'animated-gradient 10s ease infinite',
+              'shimmer': 'shimmer 1.5s infinite',
+              'scanline-reveal': 'scanline-reveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+              'image-float-out': 'image-float-out 8s ease-in-out infinite',
+              'loader-car-spin-and-lift': 'loader-car-spin-and-lift 2s ease-in-out forwards',
+              'loader-car-glow': 'loader-car-glow 2s ease-in-out forwards',
+              'car-intro-lift': 'car-intro-lift 1.2s ease-in-out',
+              'car-intro-glow': 'car-intro-glow 1.2s ease-in-out',
+              'whatsapp-pulse': 'whatsapp-pulse 2.5s infinite',
+              'ai-pulse': 'ai-pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1)',
+              'fab-tada': 'fab-tada 1s ease-in-out',
+              'dot-pulse': 'dot-pulse 1.5s infinite',
+              'message-fade-in': 'message-fade-in 0.5s ease-out forwards'
+            },
+            keyframes: {
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              pulsate: {
+                '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(217, 91, 0, 0.5)' },
+                '50%': { transform: 'scale(1.03)', boxShadow: '0 0 0 8px rgba(217, 91, 0, 0)' },
+              },
+              kenburns: {
+                '0%': { transform: 'scale(1) translate(0, 0)', transformOrigin: 'center center' },
+                '100%': { transform: 'scale(1.1) translate(-2%, 2%)', transformOrigin: 'center center' },
+              },
+              slideInLeft: {
+                '0%': { opacity: '0', transform: 'translateX(-50px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+              slideInRight: {
+                '0%': { opacity: '0', transform: 'translateX(50px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+              pageFadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              drawCircle: {
+                'to': { strokeDashoffset: '0' },
+              },
+              drawCheck: {
+                'to': { strokeDashoffset: '0' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0px)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+              'subtle-float-rotate': {
+                '0%, 100%': { transform: 'translateY(0px) rotateY(-4deg)' },
+                '50%': { transform: 'translateY(-20px) rotateY(4deg)' },
+              },
+              'device-pop-in': {
+                '0%': { opacity: '0', transform: 'scale(0.85) rotateY(-25deg) rotateX(10deg) translateY(30px)' },
+                '100%': { opacity: '1', transform: 'scale(1) rotateY(0deg) rotateX(0deg) translateY(0)' },
+              },
+              sweepNeedle: {
+                '0%': { transform: 'rotate(-135deg)' },
+                '80%': { transform: 'rotate(75deg)' },
+                '100%': { transform: 'rotate(60deg)' },
+              },
+              carZoomAndLift: {
+                '0%, 100%': { transform: 'scale(1) translateY(0)' },
+                '50%': { transform: 'scale(1.7) translateY(-32px)' },
+              },
+              carGlow: {
+                '0%, 100%': { filter: 'drop-shadow(0 0 0 rgba(249, 115, 22, 0))' },
+                '50%': { filter: 'drop-shadow(0 4px 8px rgba(249, 115, 22, 0.6))' },
+              },
+              carColorPulse: {
+                '0%, 100%': { fill: '#D95B00' },
+                '50%': { fill: '#f97316' },
+              },
+              'search-jiggle': {
+                '0%, 100%': { transform: 'rotate(0)' },
+                '25%': { transform: 'rotate(-15deg)' },
+                '75%': { transform: 'rotate(10deg)' },
+              },
+              'glow-pulse': {
+                '0%, 100%': { boxShadow: '0 0 0 0 rgba(217, 91, 0, 0.4)' },
+                '50%': { boxShadow: '0 0 12px 4px rgba(217, 91, 0, 0.1)' },
+              },
+              'animated-gradient': {
+                '0%, 100%': { backgroundPosition: '0% 50%' },
+                '50%': { backgroundPosition: '100% 50%' },
+              },
+              shimmer: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(100%)' },
+              },
+              'scanline-reveal': {
+                '0%': { transform: 'translateY(-100%)' },
+                '100%': { transform: 'translateY(100%)' },
+              },
+              'image-float-out': {
+                '0%, 100%': { 
+                  transform: 'scale(1) translateZ(0px)',
+                  boxShadow: '0 0 0 rgba(0,0,0,0)',
+                },
+                '50%': { 
+                  transform: 'scale(1.08) translateZ(20px)',
+                  boxShadow: '0 15px 30px -5px rgba(0,0,0,0.3)',
+                },
+              },
+              'loader-car-spin-and-lift': {
+                '0%': { transform: 'translateY(10px) scale(0.6) rotate(0deg)' },
+                '15%': { transform: 'translateX(10px) scale(0.7) rotate(90deg)' },
+                '30%': { transform: 'translateY(-10px) scale(0.8) rotate(180deg)' },
+                '45%': { transform: 'translateX(-10px) scale(0.7) rotate(270deg)' },
+                '60%': { transform: 'translateY(10px) scale(0.6) rotate(360deg)' },
+                '100%': { transform: 'translateY(-32px) scale(1.7) rotate(360deg)' },
+              },
+              'loader-car-glow': {
+                '0%, 60%': { filter: 'drop-shadow(0 0 0 rgba(249, 115, 22, 0))' },
+                '100%': { filter: 'drop-shadow(0 4px 8px rgba(249, 115, 22, 0.6))' },
+              },
+              'car-intro-lift': {
+                '0%': { transform: 'scale(1) translateY(0)' },
+                '50%': { transform: 'scale(1.7) translateY(-32px)' },
+                '100%': { transform: 'scale(1) translateY(0)' },
+              },
+              'car-intro-glow': {
+                '0%': { filter: 'drop-shadow(0 0 0 rgba(249, 115, 22, 0))' },
+                '50%': { filter: 'drop-shadow(0 4px 8px rgba(249, 115, 22, 0.6))' },
+                '100%': { filter: 'drop-shadow(0 0 0 rgba(249, 115, 22, 0))' },
+              },
+              'whatsapp-pulse': {
+                '0%, 100%': {
+                  transform: 'scale(1)',
+                  boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.5)',
+                },
+                '50%': {
+                  transform: 'scale(1.05)',
+                  boxShadow: '0 0 0 10px rgba(37, 211, 102, 0)',
+                },
+              },
+              'ai-pulse': {
+                '0%': {
+                  transform: 'scale(0.95)',
+                  opacity: '0.7',
+                },
+                '70%': {
+                  transform: 'scale(1.4)',
+                  opacity: '0',
+                },
+                '100%': {
+                  transform: 'scale(0.95)',
+                  opacity: '0',
+                },
+              },
+              'fab-tada': {
+                'from': {
+                  transform: 'scale3d(1, 1, 1)',
+                },
+                '10%, 20%': {
+                  transform: 'scale3d(0.95, 0.95, 0.95) rotate3d(0, 0, 1, -5deg)',
+                },
+                '30%, 50%, 70%, 90%': {
+                  transform: 'scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, 5deg)',
+                },
+                '40%, 60%, 80%': {
+                  transform: 'scale3d(1.05, 1.05, 1.05) rotate3d(0, 0, 1, -5deg)',
+                },
+                'to': {
+                  transform: 'scale3d(1, 1, 1)',
+                },
+              },
+              'dot-pulse': {
+                '0%, 100%': {
+                    opacity: 1,
+                    transform: 'scale(1)',
+                },
+                '50%': {
+                    opacity: 0.5,
+                    transform: 'scale(0.8)',
+                },
+              },
+              'message-fade-in': {
+                  '0%': {
+                      opacity: '0',
+                      transform: 'translateY(10px) scale(0.98)',
+                  },
+                  '100%': {
+                      opacity: '1',
+                      transform: 'translateY(0) scale(1)',
+                  },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Card Tilt Effect */
+      .card-tilt {
+        transition: transform 0.1s ease;
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+
+      /* Scanline Reveal Effect */
+      .scanline-reveal-container {
+        position: relative;
+        overflow: hidden;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+      }
+      .scanline-reveal-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(255, 255, 255, 0.1) 49.5%,
+          rgba(255, 255, 255, 0.5) 50%,
+          rgba(255, 255, 255, 0.1) 50.5%,
+          transparent 100%
+        );
+        opacity: 0.8;
+        transform: translateY(-100%);
+        z-index: 2;
+      }
+      .scanline-reveal-container.revealed::before {
+        animation: scanline-reveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link id="favicon" rel="icon" href="" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.4",
+    "three": "https://aistudiocdn.com/three@^0.160.0",
+    "three/addons/": "https://aistudiocdn.com/three@^0.160.0/examples/jsm/",
+    "three/": "https://aistudiocdn.com/three@^0.180.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.27.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-gray-100 transition-colors duration-500 overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
