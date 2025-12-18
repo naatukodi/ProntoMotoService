@@ -92,7 +92,6 @@ export const VEHICLE_CATEGORIES = [
   { id: 'construction-equipment', name: 'Construction Equipment', icon: <img src="https://res.cloudinary.com/drezjoynu/image/upload/v1762508880/PHOTO_CE_jvpvet.png" alt="Construction Equipment" className="w-full h-full object-contain" />, description: 'Reliable valuations for heavy machinery, including excavators, loaders, and cranes.' },
 ];
 
-// Fix: Add missing VEHICLE_AGE_OPTIONS export for the valuation estimator.
 export const VEHICLE_AGE_OPTIONS = [
     { value: '1-3', label: '1-3 Years' },
     { value: '4-6', label: '4-6 Years' },
@@ -121,7 +120,8 @@ export const HOW_IT_WORKS_STEPS = [
 export const CLIENTS: { name: string, logoUrl: string }[] = [
     { name: 'ICICI Bank', logoUrl: 'https://logoeps.com/wp-content/uploads/2012/10/icici-bank-logo-vector.png' },
     { name: 'Union Bank of India', logoUrl: 'https://res.cloudinary.com/drezjoynu/image/upload/v1762506985/UBI_ra2igc.jpg' },
-    { name: 'Bijay Finance', logoUrl: 'https://bijayfinance.com/images/templatemo_logo.png' },
+    // Updated logo link as previously discussed
+    { name: 'Bijay Finance', logoUrl: 'https://tse3.mm.bing.net/th/id/OIP.1bu0XJokYCI7Uh7oFdso2gAAAA?pid=Api&P=0&h=220' },
     { name: 'Muthoot Money', logoUrl: 'https://i.pinimg.com/736x/33/14/78/3314787c6bb9e2d11e9471c3d5b7fb2c.jpg' },
     { name: 'Sakthi Finance', logoUrl: 'https://www.sakthifinance.com/sakthi-finance-ncd-2024-apply/wp-content/uploads/2024/01/logo.png' },
     { name: 'IndusInd Bank', logoUrl: 'https://images.moneycontrol.com/static-mcnews/2019/10/IndusInd.jpg?impolicy=website&width=1600&height=900' },
@@ -171,14 +171,15 @@ export const TESTIMONIALS = [
   }
 ];
 
+// --- UPDATED ADDRESS SECTION (CONTACT PAGE) ---
 export const CONTACT_DETAILS = [
     {
         icon: <MapPinIcon />,
         title: "Address",
         lines: [
-            { text: "Srimati Vasamsetti Parvatidevi Govinda Rajan," },
-            { text: "D.No: 16-23-3/8, Pallamraju Nagar," },
-            { text: "Kakinada, A.P - 533005" }
+            { text: "D.No. 16-23-3/8, 1st Floor, Brindavanam," },
+            { text: "Road no 2, Pallamraju nagar," },
+            { text: "Kakinada.533001" }
         ]
     },
     {
@@ -211,8 +212,9 @@ export const COMPANY_STATS = [
     { value: 99, suffix: '%', label: 'Report Accuracy' },
 ];
 
+// --- UPDATED ADDRESS SECTION (FOOTER) ---
 export const FOOTER_CONTACT_INFO = {
-  address: "D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, A.P - 533005",
+  address: "D.No. 16-23-3/8, 1st Floor, Brindavanam, Road no 2, Pallamraju nagar, Kakinada.533001",
   phone1: "+91 98852 55567",
   phone2: "+91 0884 - 3596574",
   email: "connect@prontomoto.in",
