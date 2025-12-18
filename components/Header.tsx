@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { NAV_LINKS, CORE_SERVICES } from '../constants';
@@ -131,12 +130,7 @@ const Header: React.FC = () => {
                   </NavLink>
                 )
               ))}
-              <ShimmerButton
-                to="/contact"
-                className="ml-4 bg-accent-orange text-white font-bold py-2 px-5 rounded-lg text-sm uppercase transform hover:scale-105 hover:shadow-lg hover:shadow-accent-orange/30"
-              >
-                Get a Quote
-              </ShimmerButton>
+              {/* REMOVED: Desktop Get a Quote ShimmerButton was here */}
             </nav>
             {/* Mobile Menu Button */}
             <div className="-mr-2 flex items-center md:hidden">
@@ -202,16 +196,7 @@ const Header: React.FC = () => {
                 </NavLink>
               ))}
             </nav>
-            <div className="mt-auto border-t border-gray-700 pt-6 space-y-6">
-                <ShimmerButton
-                    to="/contact"
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`w-full text-center bg-accent-orange text-white font-bold py-3 px-5 rounded-lg text-lg uppercase transform hover:scale-105 hover:shadow-lg hover:shadow-accent-orange/30 transition-all duration-500 ease-out ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}
-                    style={{ transitionDelay: `${150 + NAV_LINKS.length * 60}ms` }}
-                >
-                    Get a Quote
-                </ShimmerButton>
-            </div>
+            {/* REMOVED: Mobile Get a Quote ShimmerButton section was here */}
           </div>
         </div>
       </div>
