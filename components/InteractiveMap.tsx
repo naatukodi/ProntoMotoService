@@ -11,7 +11,6 @@ const InteractiveMap: React.FC = () => {
   const position: [number, number] = [16.9891, 82.2475];
 
   useEffect(() => {
-    // Check if Leaflet is loaded to prevent crash on script failure
     if (typeof L === 'undefined') {
       if (mapContainerRef.current) {
         mapContainerRef.current.innerHTML = `
@@ -24,33 +23,38 @@ const InteractiveMap: React.FC = () => {
       return;
     }
 
-    // Prevent map from re-initializing on re-renders
     if (mapContainerRef.current && !mapInstanceRef.current) {
-      // Initialize map
       const map = L.map(mapContainerRef.current).setView(position, 14);
       mapInstanceRef.current = map;
 
-      // Add tile layer from OpenStreetMap
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
 
-      // Custom Icon
       const customIcon = L.icon({
-          iconUrl: 'https://img.icons8.com/plasticine/100/marker.png',
-          iconSize: [45, 45], // size of the icon
-          iconAnchor: [22, 45], // point of the icon which will correspond to marker's location
-          popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
+        iconUrl: 'https://img.icons8.com/plasticine/100/marker.png',
+        iconSize: [45, 45],
+        iconAnchor: [22, 45],
+        popupAnchor: [0, -45]
       });
 
-      // Add marker
-      L.marker(position, { icon: customIcon }).addTo(map)
-        .bindPopup(`
-          <div style="font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; max-width: 200px;">
-            <h3 style="font-weight: 700; font-size: 16px; margin: 0 0 8px 0; color: #2D3748;">Pronto Moto Services</h3>
-            <p style="margin: 0 0 10px 0; color: #4A5568;">D.No: 16-23-3/8, Pallamraju Nagar,<br>Kakinada, A.P - 533005</p>
+      L.marker(position, { icon: customIcon })
+        .addTo(map)
+        .bindPopup(
+          `
+          <div style="font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; max-width: 220px;">
+            <h3 style="font-weight: 700; font-size: 16px; margin: 0 0 8px 0; color: #2D3748;">
+              Vehga Inspections Private Limited
+            </h3>
+            <p style="margin: 0 0 10px 0; color: #4A5568;">
+              D.No: 16-23-3/8, Pallamraju Nagar,<br/>
+              Kakinada, Andhra Pradesh - 533005
+            </p>
             <div style="margin-bottom: 12px; text-align: left; border-top: 1px solid #e2e8f0; padding-top: 10px;">
-              <p style="margin: 0; color: #4A5568;"><strong style="color: #2D3748;">Hours:</strong> Mon - Sat, 9am - 6pm</p>
+              <p style="margin: 0; color: #4A5568;">
+                <strong style="color: #2D3748;">Business Hours:</strong> Mon - Sat, 9:00 AM - 6:00 PM
+              </p>
             </div>
             <a 
               href="https://www.google.com/maps/dir/?api=1&destination=16.9891,82.2475" 
@@ -61,13 +65,19 @@ const InteractiveMap: React.FC = () => {
               Get Directions
             </a>
           </div>
-        `, { minWidth: 220 })
+          `,
+          { minWidth: 230 }
+        )
         .openPopup();
     }
   }, []);
 
   return (
-    <div ref={mapContainerRef} className="w-full h-[500px] z-0" aria-label="Map showing company location in Kakinada"></div>
+    <div
+      ref={mapContainerRef}
+      className="w-full h-[500px] z-0"
+      aria-label="Map showing Vehga Inspections Private Limited location in Kakinada"
+    ></div>
   );
 };
 

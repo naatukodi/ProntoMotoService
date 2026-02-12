@@ -29,11 +29,11 @@ export const CAROUSEL_SLIDES = [
       src: 'https://res.cloudinary.com/drezjoynu/image/upload/v1762514676/depositphotos_126871470-stock-photo-business-hand-clicking-valuation-button_tpg7ha.webp',
       alt: 'Hand clicking a valuation button on a virtual screen',
     },
-      {
+    {
       src: 'https://res.cloudinary.com/drezjoynu/image/upload/v1762507776/depositphotos_108369034-stock-photo-looking-for-car-services-concept_jmcvv9.webp',
       alt: 'Magnifying glass over a car with text "Looking for car services"',
     },
-  ];
+];
 
 export const KEY_PILLARS = [
     { icon: <ExperiencedIcon />, title: 'EXPERIENCED', description: 'Over 60 years of combined industry experience.' },
@@ -120,7 +120,6 @@ export const HOW_IT_WORKS_STEPS = [
 export const CLIENTS: { name: string, logoUrl: string }[] = [
     { name: 'ICICI Bank', logoUrl: 'https://logoeps.com/wp-content/uploads/2012/10/icici-bank-logo-vector.png' },
     { name: 'Union Bank of India', logoUrl: 'https://res.cloudinary.com/drezjoynu/image/upload/v1762506985/UBI_ra2igc.jpg' },
-    // Updated logo link as previously discussed
     { name: 'Bijay Finance', logoUrl: 'https://tse3.mm.bing.net/th/id/OIP.1bu0XJokYCI7Uh7oFdso2gAAAA?pid=Api&P=0&h=220' },
     { name: 'Muthoot Money', logoUrl: 'https://i.pinimg.com/736x/33/14/78/3314787c6bb9e2d11e9471c3d5b7fb2c.jpg' },
     { name: 'Sakthi Finance', logoUrl: 'https://www.sakthifinance.com/sakthi-finance-ncd-2024-apply/wp-content/uploads/2024/01/logo.png' },
@@ -134,7 +133,7 @@ export const CLIENTS: { name: string, logoUrl: string }[] = [
 
 export const TESTIMONIALS = [
   {
-    quote: "Pronto Moto's app-based valuation system has revolutionized our workflow. The speed and accuracy of their reports are unmatched, significantly reducing our turnaround time for vehicle loans.",
+    quote: "Vehga Inspections Private Limited's app-based valuation system has revolutionized our workflow. The speed and accuracy of their reports are unmatched, significantly reducing our turnaround time for vehicle loans.",
     author: "K. Srinivas Rao",
     title: "Regional Credit Manager, ICICI Bank",
     avatarUrl: "https://static.vecteezy.com/system/resources/thumbnails/049/174/246/small/a-smiling-young-indian-man-with-formal-shirts-outdoors-photo.jpg"
@@ -152,26 +151,27 @@ export const TESTIMONIALS = [
     avatarUrl: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
-    quote: "The digital-first approach from Pronto Moto has been a game-changer for our asset disposal valuations. Their platform is intuitive, and the reports are consistently delivered ahead of schedule.",
+    quote: "The digital-first approach from Vehga Inspections Private Limited has been a game-changer for our asset disposal valuations. Their platform is intuitive, and the reports are consistently delivered ahead of schedule.",
     author: "Murali Krishna",
     title: "Asset Liquidation Officer, Equitas Bank",
     avatarUrl: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   },
   {
-    quote: "We handle a high volume of farm equipment financing, and Pronto Moto's specialized expertise in this area is invaluable. They understand the nuances of the machinery, which reflects in their accurate valuations.",
+    quote: "We handle a high volume of farm equipment financing, and Vehga Inspections Private Limited's specialized expertise in this area is invaluable. They understand the nuances of the machinery, which reflects in their accurate valuations.",
     author: "Geetha Madhuri",
     title: "Head of Agri-Loans, IndusInd Bank",
     avatarUrl: "https://www.shutterstock.com/image-photo/gorgeous-indian-woman-vertical-home-600nw-2592061359.jpg"
   },
   {
-    quote: "For insurance claims, we need fast and trustworthy inspections. Pronto Moto Services delivers on both fronts. Their professionalism and detailed reports simplify our claims process significantly.",
+    quote: "For insurance claims, we need fast and trustworthy inspections. Vehga Inspections Private Limited delivers on both fronts. Their professionalism and detailed reports simplify our claims process significantly.",
     author: "Prakasham G.",
     title: "Claims Department Head, Bijay Finance",
     avatarUrl: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   }
 ];
 
-// --- UPDATED ADDRESS SECTION (CONTACT PAGE) ---
+// CONTACT, ESCALATION, FOOTER, SOCIAL (UNCHANGED BELOW)
+
 export const CONTACT_DETAILS = [
     {
         icon: <MapPinIcon />,
@@ -212,7 +212,6 @@ export const COMPANY_STATS = [
     { value: 99, suffix: '%', label: 'Report Accuracy' },
 ];
 
-// --- UPDATED ADDRESS SECTION (FOOTER) ---
 export const FOOTER_CONTACT_INFO = {
   address: "D.No. 16-23-3/8, 1st Floor, Brindavanam, Road no 2, Pallamraju nagar, Kakinada.533001",
   phone1: "+91 98852 55567",
