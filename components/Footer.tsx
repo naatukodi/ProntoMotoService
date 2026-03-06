@@ -138,13 +138,16 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Contact Info</h3>
             <ul className="space-y-4 text-gray-600">
+              
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-primary"><MapPinIcon /></div>
-                <span className="text-sm">{FOOTER_CONTACT_INFO.address}</span>
+                {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
+                <div className="w-6 h-6 mt-0.5 mr-4 text-primary flex-shrink-0"><MapPinIcon /></div>
+                <span className="text-sm leading-relaxed">{FOOTER_CONTACT_INFO.address}</span>
               </li>
 
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-primary"><PhoneIcon /></div>
+                 {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
+                <div className="w-6 h-6 mt-0.5 mr-4 text-primary flex-shrink-0"><PhoneIcon /></div>
                 <div>
                   <a href={`tel:${FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '')}`} className="hover:text-primary hover:underline">
                     {FOOTER_CONTACT_INFO.phone1}
@@ -156,14 +159,16 @@ const Footer: React.FC = () => {
               </li>
 
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-primary"><EnvelopeIcon /></div>
+                 {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
+                <div className="w-6 h-6 mt-0.5 mr-4 text-primary flex-shrink-0"><EnvelopeIcon /></div>
                 <a href={mailtoUrl} className="hover:text-primary hover:underline break-all">
                   {FOOTER_CONTACT_INFO.email}
                 </a>
               </li>
 
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-[#25D366]"><WhatsAppIcon /></div>
+                 {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
+                <div className="w-6 h-6 mt-0.5 mr-4 text-[#25D366] flex-shrink-0"><WhatsAppIcon /></div>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline">
                   Chat on WhatsApp
                 </a>
