@@ -81,10 +81,10 @@ const PrivacyPolicyPage: React.FC = () => {
             <p>
               If you have any questions regarding this Privacy Policy or how your information is handled, please contact us at{' '}
               <a 
-                href="mailto:connect@prontomoto.in" 
+                href="mailto:connect@vehga.in" 
                 className="text-accent-orange hover:underline"
               >
-                connect@prontomoto.in
+                connect@vehga.in
               </a>.
             </p>
 

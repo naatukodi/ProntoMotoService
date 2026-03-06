@@ -33,22 +33,25 @@ const ChatbotFAB: React.FC<ChatbotFABProps> = ({ onOpen }) => {
       aria-label="Open AI Chat Assistant"
     >
       <div
-        className={`relative flex items-center gap-3 bg-white rounded-full shadow-2xl p-2 pr-5 transition-all duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-accent-orange/30 border-2 border-transparent group-hover:border-accent-orange ${isAnimating ? 'animate-fab-tada' : ''}`}
+        // UPDATED: Changed hover shadow and border to PRIMARY (Teal)
+        className={`relative flex items-center gap-3 bg-white rounded-full shadow-2xl p-2 pr-5 transition-all duration-300 ease-in-out transform group-hover:scale-105 group-hover:shadow-primary/30 border-2 border-transparent group-hover:border-primary ${isAnimating ? 'animate-fab-tada' : ''}`}
       >
         {/* Pulsing Avatar */}
         <div className="relative">
-            <div className="flex items-center justify-center w-14 h-14 bg-gradient-to-br from-accent-orange to-orange-500 text-white rounded-full transition-transform duration-300 group-hover:rotate-12">
+            {/* UPDATED: Changed background to PRIMARY (Teal) */}
+            <div className="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full transition-transform duration-300 group-hover:rotate-12 shadow-md">
                 <div className="w-8 h-8">
                     <ChatIcon />
                 </div>
             </div>
-            {/* Animated pulse ring */}
-            <div className="absolute inset-0 rounded-full animate-ai-pulse border-2 border-accent-orange"></div>
+            {/* UPDATED: Changed pulse ring to PRIMARY (Teal) */}
+            <div className="absolute inset-0 rounded-full animate-ai-pulse border-2 border-primary"></div>
         </div>
         
         {/* Text content */}
         <div className="text-left">
-            <p className="font-bold text-primary-dark leading-tight">AI Assistant</p>
+            {/* UPDATED: Text color is primary-dark (or you can use text-gray-800) */}
+            <p className="font-bold text-gray-800 leading-tight">AI Assistant</p>
             <p className="text-sm text-gray-500 leading-tight">Ask me anything!</p>
         </div>
       </div>

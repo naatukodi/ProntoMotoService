@@ -57,7 +57,7 @@ const AboutPage: React.FC = () => {
                   Our Journey of Professional Excellence
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-4">
-                  Vehga Inspections Private Limited is a tech-enabled vehicle inspection and valuation firm built on over 60 years of combined industry expertise.
+                  Vehga Inspections Private Limited is a tech-enabled vehicle inspection and valuation company built on over 60 years of combined industry expertise.
                 </p>
                 <p className="text-gray-600 leading-relaxed">
                   We are trusted by leading banks, NBFCs, and insurance providers for delivering accurate, compliant, and timely valuation reports across multiple vehicle categories. Our commitment to precision, transparency, and technology-driven processes ensures dependable results every time.

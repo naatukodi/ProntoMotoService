@@ -27,10 +27,12 @@ const Footer: React.FC = () => {
 
   return (
     <footer
-      className="bg-primary-dark text-white relative z-10 border-t-4 border-accent-orange"
+      // UPDATED: Changed bg to white, text to dark gray
+      className="bg-white text-gray-800 relative z-10 border-t-4 border-primary"
       style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png')" }}
     >
-      <div className="absolute inset-0 bg-primary-dark/95"></div>
+      {/* UPDATED: Overlay is now white to blend with background */}
+      <div className="absolute inset-0 bg-white/95"></div>
 
       <div className="relative container mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -38,13 +40,15 @@ const Footer: React.FC = () => {
           {/* Column 1 */}
           <div className="space-y-6">
             <Logo />
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Vehga Inspections Private Limited is a tech-enabled vehicle inspection and valuation firm trusted by banks, NBFCs, and insurance providers.
+            {/* UPDATED: Text color for readability on white */}
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Vehga Inspections Private Limited is a tech-enabled vehicle inspection and valuation company trusted by banks, NBFCs, and insurance providers.
             </p>
 
             <div>
-              <h3 className="text-lg font-bold tracking-wider uppercase mb-4">Stay Updated</h3>
-              <p className="text-gray-400 text-sm mb-3">
+              {/* UPDATED: Heading color */}
+              <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Stay Updated</h3>
+              <p className="text-gray-600 text-sm mb-3">
                 Subscribe to our newsletter for the latest industry insights.
               </p>
 
@@ -54,13 +58,14 @@ const Footer: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your Email Address"
-                  className="w-full bg-gray-700/50 border-2 border-gray-600 rounded-l-lg py-2 px-4 text-white placeholder-gray-400 focus:outline-none focus:border-accent-orange transition-colors"
+                  // UPDATED: Input background lighter, text dark, border lighter
+                  className="w-full bg-gray-100 border-2 border-gray-200 rounded-l-lg py-2 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                   required
                 />
                 <button
                   type="submit"
                   aria-label="Subscribe to newsletter"
-                  className="bg-accent-orange text-white p-3 rounded-r-lg hover:bg-orange-600 transition-colors"
+                  className="bg-primary text-white p-3 rounded-r-lg hover:bg-primary-dark transition-colors"
                 >
                   <div className="w-5 h-5"><SendIcon /></div>
                 </button>
@@ -77,7 +82,8 @@ const Footer: React.FC = () => {
                     onClick={isPlaceholder ? (e) => e.preventDefault() : undefined}
                     target={isPlaceholder ? undefined : '_blank'}
                     rel={isPlaceholder ? undefined : 'noopener noreferrer'}
-                    className={`text-gray-400 hover:text-white hover:bg-accent-orange transition-all duration-300 w-10 h-10 flex items-center justify-center rounded-full ${isPlaceholder ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    // UPDATED: Icon colors for white bg
+                    className={`text-gray-500 hover:text-white hover:bg-primary transition-all duration-300 w-10 h-10 flex items-center justify-center rounded-full ${isPlaceholder ? 'opacity-50 cursor-not-allowed' : ''}`}
                     aria-label={item.name}
                   >
                     {item.icon}
@@ -89,15 +95,16 @@ const Footer: React.FC = () => {
 
           {/* Column 2 */}
           <div>
-            <h3 className="text-lg font-bold tracking-wider uppercase mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Quick Links</h3>
             <ul className="space-y-3">
               {FOOTER_QUICK_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    className="text-gray-400 hover:text-accent-orange transition-all duration-300 flex items-center group"
+                    // UPDATED: Link text color
+                    className="text-gray-600 hover:text-primary transition-all duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-px bg-gray-500 group-hover:bg-accent-orange mr-3 transition-colors"></span>
+                    <span className="w-2 h-px bg-gray-400 group-hover:bg-primary mr-3 transition-colors"></span>
                     <span className="group-hover:translate-x-1 transition-transform transform">
                       {link.label}
                     </span>
@@ -109,15 +116,15 @@ const Footer: React.FC = () => {
 
           {/* Column 3 */}
           <div>
-            <h3 className="text-lg font-bold tracking-wider uppercase mb-4">Services</h3>
+            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Services</h3>
             <ul className="space-y-3">
               {FOOTER_SERVICES_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    className="text-gray-400 hover:text-accent-orange transition-all duration-300 flex items-center group"
+                    className="text-gray-600 hover:text-primary transition-all duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-px bg-gray-500 group-hover:bg-accent-orange mr-3 transition-colors"></span>
+                    <span className="w-2 h-px bg-gray-400 group-hover:bg-primary mr-3 transition-colors"></span>
                     <span className="group-hover:translate-x-1 transition-transform transform">
                       {link.label}
                     </span>
@@ -129,35 +136,35 @@ const Footer: React.FC = () => {
 
           {/* Column 4 */}
           <div>
-            <h3 className="text-lg font-bold tracking-wider uppercase mb-4">Contact Info</h3>
-            <ul className="space-y-4 text-gray-400">
+            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Contact Info</h3>
+            <ul className="space-y-4 text-gray-600">
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-accent-orange"><MapPinIcon /></div>
+                <div className="w-5 h-5 mt-1 mr-4 text-primary"><MapPinIcon /></div>
                 <span className="text-sm">{FOOTER_CONTACT_INFO.address}</span>
               </li>
 
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-accent-orange"><PhoneIcon /></div>
+                <div className="w-5 h-5 mt-1 mr-4 text-primary"><PhoneIcon /></div>
                 <div>
-                  <a href={`tel:${FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline">
+                  <a href={`tel:${FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '')}`} className="hover:text-primary hover:underline">
                     {FOOTER_CONTACT_INFO.phone1}
                   </a><br/>
-                  <a href={`tel:${FOOTER_CONTACT_INFO.phone2.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline">
+                  <a href={`tel:${FOOTER_CONTACT_INFO.phone2.replace(/[\s+-]/g, '')}`} className="hover:text-primary hover:underline">
                     {FOOTER_CONTACT_INFO.phone2}
                   </a>
                 </div>
               </li>
 
               <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 text-accent-orange"><EnvelopeIcon /></div>
-                <a href={mailtoUrl} className="hover:text-accent-orange hover:underline break-all">
+                <div className="w-5 h-5 mt-1 mr-4 text-primary"><EnvelopeIcon /></div>
+                <a href={mailtoUrl} className="hover:text-primary hover:underline break-all">
                   {FOOTER_CONTACT_INFO.email}
                 </a>
               </li>
 
               <li className="flex items-start">
                 <div className="w-5 h-5 mt-1 mr-4 text-[#25D366]"><WhatsAppIcon /></div>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-accent-orange hover:underline">
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline">
                   Chat on WhatsApp
                 </a>
               </li>
@@ -168,18 +175,19 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="relative border-t border-gray-700/50">
+      {/* UPDATED: Border color to light gray */}
+      <div className="relative border-t border-gray-200">
         <div className="container mx-auto py-6 px-4 text-sm text-center">
-          <span className="text-gray-400">
+          <span className="text-gray-500">
             Copyright © 2025 Vehga Inspections Private Limited. All rights reserved.
           </span>
 
           <div className="flex justify-center gap-4 mt-2">
-            <Link to="/privacy-policy" className="text-gray-400 hover:text-white hover:underline">
+            <Link to="/privacy-policy" className="text-gray-500 hover:text-primary hover:underline">
               Privacy Policy
             </Link>
-            <span className="text-gray-500">|</span>
-            <Link to="/terms-of-service" className="text-gray-400 hover:text-white hover:underline">
+            <span className="text-gray-400">|</span>
+            <Link to="/terms-of-service" className="text-gray-500 hover:text-primary hover:underline">
               Terms of Service
             </Link>
           </div>

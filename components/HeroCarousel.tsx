@@ -30,7 +30,7 @@ const HeroCarousel: React.FC = () => {
   };
 
   return (
-    <section className="relative bg-primary-dark text-white h-[80vh] sm:h-[85vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+    <section className="relative bg-black text-white h-[80vh] sm:h-[85vh] flex flex-col items-center justify-center text-center px-4 overflow-hidden">
 
       {/* Slides */}
       <div className="absolute inset-0">
@@ -54,17 +54,23 @@ const HeroCarousel: React.FC = () => {
         ))}
       </div>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/90 via-primary-dark/70 to-transparent"></div>
+      {/* Overlay - LIGHTER VERSION */}
+      {/* changed from solid black to 80% and 40% opacity */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
       {/* Content */}
-      <div className={`relative z-10 transition-opacity duration-700 ${isAnimating ? 'opacity-0' : 'opacity-100'}`}>
+      <div
+        className={`relative z-10 transition-opacity duration-700 ${
+          isAnimating ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-wider animate-fadeInDown bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
           Vehga Inspections Private Limited
         </h1>
 
+        {/* Tagline */}
         <p
-          className="mt-4 text-xl sm:text-2xl md:text-4xl font-semibold text-accent-orange tracking-wide animate-fadeInUp"
+          className="mt-4 text-xl sm:text-2xl md:text-4xl font-semibold text-primary tracking-wide animate-fadeInUp"
           style={{ animationDelay: '0.3s' }}
         >
           Precision. Integrity. Valuation Excellence.
@@ -78,9 +84,10 @@ const HeroCarousel: React.FC = () => {
           trusted by banks, NBFCs, and insurance providers across South India.
         </p>
 
+        {/* Button */}
         <Link
           to="/contact"
-          className="group mt-8 inline-flex items-center bg-accent-orange text-white font-bold py-3 px-8 rounded-lg text-base sm:py-4 sm:px-10 sm:text-lg uppercase transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-accent-orange/30 animate-pulsate"
+          className="group mt-8 inline-flex items-center bg-primary text-white font-bold py-3 px-8 rounded-lg text-base sm:py-4 sm:px-10 sm:text-lg uppercase transition-all duration-300 transform hover:scale-105 hover:bg-primary-dark hover:shadow-2xl hover:shadow-primary/30 animate-pulsate"
           style={{ animationDelay: '0.7s' }}
         >
           Request a Valuation
@@ -105,7 +112,7 @@ const HeroCarousel: React.FC = () => {
             onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               currentIndex === index
-                ? 'bg-accent-orange scale-125'
+                ? 'bg-primary scale-125'
                 : 'bg-white/50 hover:bg-white'
             }`}
             aria-label={`Go to slide ${index + 1}`}

@@ -194,7 +194,7 @@ export const CONTACT_DETAILS = [
         icon: <EnvelopeIcon />,
         title: "Email",
         lines: [
-            { text: "connect@prontomoto.in", href: "mailto:connect@prontomoto.in" }
+            { text: "connect@vehga.in", href: "mailto:connect@vehga.in" }
         ]
     }
 ];
@@ -216,7 +216,7 @@ export const FOOTER_CONTACT_INFO = {
   address: "D.No. 16-23-3/8, 1st Floor, Brindavanam, Road no 2, Pallamraju nagar, Kakinada.533001",
   phone1: "+91 98852 55567",
   phone2: "+91 0884 - 3596574",
-  email: "connect@prontomoto.in",
+  email: "connect@vehga.in",
 };
 
 export const FOOTER_QUICK_LINKS = [

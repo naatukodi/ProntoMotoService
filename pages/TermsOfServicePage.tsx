@@ -77,10 +77,10 @@ const TermsOfServicePage: React.FC = () => {
             <p>
               If you have any questions regarding these Terms of Service, please contact us at{' '}
               <a
-                href="mailto:connect@prontomoto.in"
+                href="mailto:connect@vehga.in"
                 className="text-accent-orange hover:underline"
               >
-                connect@prontomoto.in
+                connect@vehga.in
               </a>.
             </p>
 
