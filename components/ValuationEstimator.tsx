@@ -119,12 +119,12 @@ const ValuationEstimator: React.FC = () => {
             <path
               d="M 0 0 L -70 0"
               strokeWidth="4"
-              className="stroke-primary-dark"
+              className="stroke-gray-800"
               strokeLinecap="round"
             />
           </g>
           {/* Needle Hub (outside the rotating group) */}
-          <circle cx="0" cy="0" r="8" className="fill-primary-dark" />
+          <circle cx="0" cy="0" r="8" className="fill-gray-800" />
           <circle cx="0" cy="0" r="4" className="fill-accent-orange" />
         </g>
       </svg>
@@ -139,7 +139,7 @@ const ValuationEstimator: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimator>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-dark">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800">
               Instant Valuation Insights
             </h2>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -162,7 +162,7 @@ const ValuationEstimator: React.FC = () => {
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                                     <div className="w-5 h-5"><FourWheelerIcon /></div>
                                 </div>
-                                <select id="vehicleType" name="vehicleType" value={formData.vehicleType} onChange={handleInputChange} required className="block w-full appearance-none rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-10 text-primary-dark focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm">
+                                <select id="vehicleType" name="vehicleType" value={formData.vehicleType} onChange={handleInputChange} required className="block w-full appearance-none rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-10 text-gray-800 focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm">
                                     <option value="" disabled>Select a type</option>
                                     {VEHICLE_CATEGORIES.map(cat => <option key={cat.id} value={cat.name}>{cat.name}</option>)}
                                 </select>
@@ -170,7 +170,7 @@ const ValuationEstimator: React.FC = () => {
                         </div>
                         <div>
                             <label htmlFor="vehicleAge" className="block text-sm font-medium text-gray-700">Vehicle Age</label>
-                             <select id="vehicleAge" name="vehicleAge" value={formData.vehicleAge} onChange={handleInputChange} required className="mt-1 block w-full appearance-none rounded-lg border border-gray-300 bg-white py-3 px-4 text-primary-dark focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm">
+                             <select id="vehicleAge" name="vehicleAge" value={formData.vehicleAge} onChange={handleInputChange} required className="mt-1 block w-full appearance-none rounded-lg border border-gray-300 bg-white py-3 px-4 text-gray-800 focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm">
                                 <option value="" disabled>Select age range</option>
                                 {/* Fix: Use opt.value for the option value to send a clean value to the API. */}
                                 {VEHICLE_AGE_OPTIONS.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
@@ -182,7 +182,7 @@ const ValuationEstimator: React.FC = () => {
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                                     <div className="w-5 h-5"><UserIcon /></div>
                                 </div>
-                                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required placeholder="John Doe" className="block w-full rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-4 text-primary-dark focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm" />
+                                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required placeholder="John Doe" className="block w-full rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-4 text-gray-800 focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm" />
                             </div>
                         </div>
                         <div>
@@ -191,7 +191,7 @@ const ValuationEstimator: React.FC = () => {
                                 <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                                     <div className="w-5 h-5"><EnvelopeIcon /></div>
                                 </div>
-                                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required placeholder="you@example.com" className="block w-full rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-4 text-primary-dark focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm" />
+                                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required placeholder="you@example.com" className="block w-full rounded-lg border border-gray-300 bg-white py-3 pl-10 pr-4 text-gray-800 focus:border-accent-orange focus:outline-none focus:ring-accent-orange sm:text-sm" />
                             </div>
                         </div>
                         {error && <p className="text-sm font-semibold text-red-500">{error}</p>}
@@ -230,7 +230,7 @@ const ValuationEstimator: React.FC = () => {
                     </div>
 
                     <div className="mt-6 text-left">
-                        <h4 className="font-bold text-primary-dark">What This Means:</h4>
+                        <h4 className="font-bold text-gray-800">What This Means:</h4>
                         <ul className="mt-2 list-disc list-inside space-y-1 text-sm text-gray-600">
                             <li>This is a data-driven starting point, not a final offer.</li>
                             <li>Market conditions and vehicle specifics cause variations.</li>
@@ -242,7 +242,7 @@ const ValuationEstimator: React.FC = () => {
                         <Link to="/contact" className="w-full text-center inline-flex justify-center items-center bg-accent-orange text-white font-bold py-3 px-5 rounded-lg text-base uppercase transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-accent-orange/30">
                             Request a Certified Inspection
                         </Link>
-                        <button onClick={handleReset} className="w-full text-sm font-semibold text-gray-600 hover:text-primary-dark transition-colors">
+                        <button onClick={handleReset} className="w-full text-sm font-semibold text-gray-600 hover:text-gray-800 transition-colors">
                             Calculate Another &rarr;
                         </button>
                     </div>

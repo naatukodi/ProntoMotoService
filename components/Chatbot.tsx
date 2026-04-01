@@ -61,45 +61,45 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
           systemInstruction: `You are "Vehga AI," a highly informed customer support specialist for Vehga Inspections Private Limited. Your main goal is to be helpful, accurate, and concise, using the detailed information provided below.
 
 **Knowledge Base: Vehga Inspections Private Limited**
-* **Company:** A tech-enabled vehicle inspection and valuation company with over 60 years of combined experience.
-* **Company Values:**
-    * **Precision & Integrity:** We are committed to delivering accurate, compliant, and trustworthy reports.
-    * **Technological Innovation:** We leverage modern apps and tools for fast and transparent results.
-    * **Client Focus:** We are dedicated to providing timely, service-oriented solutions that meet client needs.
-    * **Deep Expertise:** Our work is built on over 60 years of combined industry experience.
-* **Operational Areas:**
-    * Our primary operations are centered in **Andhra Pradesh**.
-    * We have the capacity and network to serve clients across **South India**. For inquiries about service in a specific location, it's best to use the contact form.
-* **Location:** Our head office is located at: D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, Andhra Pradesh - 533005.
-* **Leadership Team:**
-    * N.V. Pradeep Kishore Vemula: Managing Partner
-    * Mahesh Garikina: Managing Partner
-    * Kare Vasu: Head of Operations
-* **Core Services:**
+*   **Company:** A tech-enabled vehicle inspection and valuation firm with over 60 years of combined experience.
+*   **Company Values:**
+    *   **Precision & Integrity:** We are committed to delivering accurate, compliant, and trustworthy reports.
+    *   **Technological Innovation:** We leverage modern apps and tools for fast and transparent results.
+    *   **Client Focus:** We are dedicated to providing timely, service-oriented solutions that meet client needs.
+    *   **Deep Expertise:** Our work is built on over 60 years of combined industry experience.
+*   **Operational Areas:**
+    *   Our primary operations are centered in **Andhra Pradesh**.
+    *   We have the capacity and network to serve clients across **South India**. For inquiries about service in a specific location, it's best to use the contact form.
+*   **Location:** Our head office is located at: D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, Andhra Pradesh - 533005.
+*   **Leadership Team:**
+    *   N.V. Pradeep Kishore Vemula: Managing Partner
+    *   Mahesh Garikina: Managing Partner
+    *   Kare Vasu: Head of Operations
+*   **Core Services:**
     1.  **Financing Valuations:** For lenders on secured loans.
     2.  **Insurance Inspection & Valuations:** For insurance companies for premiums and claims.
     3.  **Asset Disposal Valuations:** For businesses and individuals selling vehicles.
-* **Vehicle Expertise:** We inspect a wide range of vehicles: Two Wheelers, Three Wheelers, Four Wheelers, Farm Equipment, Commercial Vehicles, and Construction Equipment.
-* **Our Process (How It Works):**
+*   **Vehicle Expertise:** We inspect a wide range of vehicles: Two Wheelers, Three Wheelers, Four Wheelers, Farm Equipment, Commercial Vehicles, and Construction Equipment.
+*   **Our Process (How It Works):**
     1.  **Submit a Request:** Client contacts us to start.
     2.  **On-Site Inspection:** Our surveyor inspects the vehicle.
     3.  **Receive Detailed Report:** Client gets a comprehensive valuation report.
-* **Contact & Escalation:** For general inquiries, users can use the contact page. For issues, our escalation matrix is:
-    * First Level: Mr Jagadish
-    * Second Level: Mr Mahesh Garikina
-    * Nodal Officer: Mr N V Pradeep Kishore Vemula
+*   **Contact & Escalation:** For general inquiries, users can use the contact page. For issues, our escalation matrix is:
+    *   First Level: Mr Jagadish
+    *   Second Level: Mr Mahesh Garikina
+    *   Nodal Officer: Mr N V Pradeep Kishore Vemula
 
 **Personality & Tone:**
-* **Professional & Friendly:** Be polite and approachable.
-* **Efficient:** Get straight to the point.
+*   **Professional & Friendly:** Be polite and approachable.
+*   **Efficient:** Get straight to the point.
 
 **Core Instructions:**
 1.  **Multilingual Support:** You can understand and respond in English, Telugu, and Hindi. If a user asks a question in Telugu or Hindi, respond fluently in that same language while still following all other instructions.
 2.  **Prioritize Brevity:** Your answers MUST be short and direct, ideally 1-3 sentences. Do not provide long paragraphs.
 3.  **Use Your Knowledge Base:** ALWAYS use the information from the "Knowledge Base" section to answer questions about the company's location, services, leadership, etc. Never state that the company has no office or that you don't have this information.
 4.  **Answer First, Then Ask:** First, directly answer the user's question using your knowledge base. Then, immediately ask a follow-up question to offer more details or guide them.
-    * **Example 1:** If user asks "Where is your office?", respond: "Our office is in Kakinada, Andhra Pradesh. Do you need the full address?"
-    * **Example 2:** If user asks "Who is in charge?", respond: "Our Managing Partners are N.V. Pradeep Kishore Vemula and Mahesh Garikina. Are you trying to reach someone specific?"
+    *   **Example 1:** If user asks "Where is your office?", respond: "Our office is in Kakinada, Andhra Pradesh. Do you need the full address?"
+    *   **Example 2:** If user asks "Who is in charge?", respond: "Our Managing Partners are N.V. Pradeep Kishore Vemula and Mahesh Garikina. Are you trying to reach someone specific?"
 5.  **Guide the Conversation:** Actively suggest next steps. If a user is vague, help them narrow down their query. For example: "I can help with that. Are you interested in valuations for a personal vehicle or for a business?"
 6.  **Lead to Action:** When relevant, guide users to the contact page for a quote. For instance: "For specific pricing details, your best bet is to request a formal quote. I can point you to our contact page if you'd like."`,
         },
@@ -174,8 +174,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
       setIsSpeechSupported(false);
     }
     
-    // Updated local storage key to match new branding consistency
-    const savedLang = localStorage.getItem('vehga-chat-voice-lang');
+    const savedLang = localStorage.getItem('pronto-chat-voice-lang');
     if (savedLang) {
       setCurrentLanguage(savedLang);
     }
@@ -208,8 +207,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
   };
   
   const handleLangSelect = (langCode: string) => {
-    // Updated local storage key
-    localStorage.setItem('vehga-chat-voice-lang', langCode);
+    localStorage.setItem('pronto-chat-voice-lang', langCode);
     setCurrentLanguage(langCode);
     setShowLangPicker(false);
   };
@@ -269,13 +267,13 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
         <header className="relative flex items-center justify-between p-4 border-b border-gray-200 bg-white rounded-t-2xl flex-shrink-0">
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-accent-orange to-orange-400 flex items-center justify-center text-white">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center text-white">
                 <div className="w-6 h-6"><ChatIcon /></div>
               </div>
               <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-500 ring-2 ring-white animate-dot-pulse"></span>
             </div>
             <div>
-              <h2 id="chat-heading" className="text-lg font-bold text-primary-dark">Vehga AI</h2>
+              <h2 id="chat-heading" className="text-lg font-bold text-gray-800">Vehga AI</h2>
               <p className="text-xs text-gray-500">Online</p>
             </div>
           </div>
@@ -309,17 +307,17 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
           {messages.map((msg) => (
             <div key={msg.id} className={`animate-message-fade-in flex items-end gap-2.5 ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
               {msg.sender === 'bot' && (
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-orange to-orange-400 flex items-center justify-center text-white flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center text-white flex-shrink-0">
                   <div className="w-5 h-5"><ChatIcon /></div>
                 </div>
               )}
               <div
                 className={`max-w-[80%] rounded-2xl px-4 py-2.5 text-sm shadow-sm ${
                   msg.sender === 'user'
-                    ? 'bg-accent-orange text-white rounded-br-md'
+                    ? 'bg-teal-700 text-white rounded-br-md'
                     : msg.id === 'initial-message'
-                    ? 'bg-white border border-gray-200 text-primary-dark rounded-bl-md'
-                    : 'bg-white text-primary-dark rounded-bl-md'
+                    ? 'bg-white border border-gray-200 text-gray-800 rounded-bl-md'
+                    : 'bg-white text-gray-800 rounded-bl-md'
                 }`}
               >
                 <p className="whitespace-pre-wrap">{msg.text}</p>
@@ -328,7 +326,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
           ))}
           {isLoading && (
             <div className="animate-message-fade-in flex items-end gap-2.5 justify-start">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-accent-orange to-orange-400 flex items-center justify-center text-white flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center text-white flex-shrink-0">
                   <div className="w-5 h-5"><ChatIcon /></div>
               </div>
               <div className="bg-white rounded-2xl rounded-bl-md shadow-sm">
@@ -347,13 +345,13 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
               onClick={() => setShowLangPicker(false)}
             >
               <div className="bg-white p-6 rounded-xl shadow-2xl space-y-4" onClick={(e) => e.stopPropagation()}>
-                <h3 className="font-bold text-center text-primary-dark">Choose a language to speak</h3>
+                <h3 className="font-bold text-center text-gray-800">Choose a language to speak</h3>
                 <div className="flex justify-center gap-3">
                   {SPEECH_LANGUAGES.map(lang => (
                     <button
                       key={lang.code}
                       onClick={() => handleLangSelect(lang.code)}
-                      className="px-5 py-2.5 font-semibold text-primary-dark bg-gray-200 rounded-lg hover:bg-accent-orange hover:text-white transition-all transform hover:scale-105"
+                      className="px-5 py-2.5 font-semibold text-gray-800 bg-gray-200 rounded-lg hover:bg-teal-700 hover:text-white transition-all transform hover:scale-105"
                     >
                       {lang.name}
                     </button>
@@ -371,7 +369,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder={isListening ? "Listening..." : "Ask me anything..."}
-              className="flex-1 bg-gray-100 border-2 border-transparent rounded-full py-2.5 px-5 text-primary-dark placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-accent-orange/70 focus:border-transparent transition-all"
+              className="flex-1 bg-gray-100 border-2 border-transparent rounded-full py-2.5 px-5 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-700/70 focus:border-transparent transition-all"
               disabled={isLoading || isListening}
             />
             {isSpeechSupported && (
@@ -379,8 +377,8 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
                   type="button"
                   onClick={handleMicClick}
                   title={isListening ? "Stop listening" : "Start voice input"}
-                  className={`w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-accent-orange ${
-                      isListening ? 'text-white bg-accent-red animate-pulse' : 'text-gray-500 bg-gray-100 hover:text-accent-orange'
+                  className={`w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-teal-700 ${
+                      isListening ? 'text-white bg-accent-red animate-pulse' : 'text-gray-500 bg-gray-100 hover:text-teal-700'
                   }`}
                   aria-label={isListening ? "Listening..." : "Start voice input"}
                   disabled={isLoading}
@@ -391,7 +389,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-accent-orange text-white disabled:bg-gray-400 disabled:cursor-not-allowed hover:bg-orange-600 transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-orange"
+              className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full bg-teal-700 text-white disabled:bg-gray-400 disabled:cursor-not-allowed hover:bg-teal-800 transition-all transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-700"
               aria-label="Send message"
             >
               <div className="w-5 h-5"><SendIcon /></div>

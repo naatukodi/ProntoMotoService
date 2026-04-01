@@ -19,9 +19,9 @@ const LeadershipCard: React.FC<{ member: LeadershipMember }> = ({ member }) => {
             <img
                 src={member.imageUrl}
                 alt={`Photo of ${member.name}`}
-                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-200 group-hover:border-accent-orange transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
+                className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-200 transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg"
             />
-            <h3 className="text-xl font-bold text-primary-dark">{member.name}</h3>
+            <h3 className="text-xl font-bold text-gray-800">{member.name}</h3>
             <p className="text-accent-orange font-semibold mb-2">{member.title}</p>
             
             <div

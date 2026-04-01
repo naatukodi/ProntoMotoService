@@ -12,6 +12,7 @@ const Footer: React.FC = () => {
     e.preventDefault();
     if (email) {
       console.log('Newsletter subscription for:', email);
+      // Here you would typically handle the API call
       alert(`Thank you for subscribing, ${email}!`);
       setEmail('');
     }
@@ -26,52 +27,32 @@ const Footer: React.FC = () => {
   const mailtoUrl = `mailto:${FOOTER_CONTACT_INFO.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
 
   return (
-    <footer
-      // UPDATED: Changed bg to white, text to dark gray
-      className="bg-white text-gray-800 relative z-10 border-t-4 border-primary"
-      style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/carbon-fibre-v2.png')" }}
-    >
-      {/* UPDATED: Overlay is now white to blend with background */}
-      <div className="absolute inset-0 bg-white/95"></div>
-
+    <footer className="bg-gray-50 text-gray-800 relative z-10 border-t-4 border-accent-orange">
       <div className="relative container mx-auto py-20 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-          {/* Column 1 */}
+          {/* Column 1: Company, Newsletter, Social */}
           <div className="space-y-6">
-            <Logo />
-            {/* UPDATED: Text color for readability on white */}
+            <Logo variant="dark" />
             <p className="text-gray-600 text-sm leading-relaxed">
               Vehga Inspections Private Limited is a tech-enabled vehicle inspection and valuation company trusted by banks, NBFCs, and insurance providers.
             </p>
-
             <div>
-              {/* UPDATED: Heading color */}
-              <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Stay Updated</h3>
-              <p className="text-gray-600 text-sm mb-3">
-                Subscribe to our newsletter for the latest industry insights.
-              </p>
-
+              <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-teal-700">Stay Updated</h3>
+              <p className="text-gray-600 text-sm mb-3">Subscribe to our newsletter for the latest industry insights.</p>
               <form onSubmit={handleNewsletterSubmit} className="relative flex items-center">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your Email Address"
-                  // UPDATED: Input background lighter, text dark, border lighter
-                  className="w-full bg-gray-100 border-2 border-gray-200 rounded-l-lg py-2 px-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                  className="w-full bg-white border-2 border-gray-200 rounded-l-lg py-2 px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:border-accent-orange transition-colors"
                   required
                 />
-                <button
-                  type="submit"
-                  aria-label="Subscribe to newsletter"
-                  className="bg-primary text-white p-3 rounded-r-lg hover:bg-primary-dark transition-colors"
-                >
+                <button type="submit" aria-label="Subscribe to newsletter" className="bg-accent-orange text-white p-3 rounded-r-lg hover:bg-teal-700 transition-colors">
                   <div className="w-5 h-5"><SendIcon /></div>
                 </button>
               </form>
             </div>
-
             <div className="flex space-x-2 pt-2">
               {SOCIAL_LINKS.map((item) => {
                 const isPlaceholder = item.href === '#';
@@ -82,9 +63,9 @@ const Footer: React.FC = () => {
                     onClick={isPlaceholder ? (e) => e.preventDefault() : undefined}
                     target={isPlaceholder ? undefined : '_blank'}
                     rel={isPlaceholder ? undefined : 'noopener noreferrer'}
-                    // UPDATED: Icon colors for white bg
-                    className={`text-gray-500 hover:text-white hover:bg-primary transition-all duration-300 w-10 h-10 flex items-center justify-center rounded-full ${isPlaceholder ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`text-gray-500 hover:text-white hover:bg-accent-orange border border-gray-200 transition-all duration-300 w-10 h-10 flex items-center justify-center rounded-full ${isPlaceholder ? 'opacity-50 cursor-not-allowed' : ''}`}
                     aria-label={item.name}
+                    title={isPlaceholder ? `${item.name} (Coming Soon)` : `Follow us on ${item.name}`}
                   >
                     {item.icon}
                   </a>
@@ -93,108 +74,79 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Column 2 */}
+          {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Quick Links</h3>
+            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-teal-700">Quick Links</h3>
             <ul className="space-y-3">
               {FOOTER_QUICK_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    // UPDATED: Link text color
-                    className="text-gray-600 hover:text-primary transition-all duration-300 flex items-center group"
+                    className="text-gray-600 hover:text-accent-orange transition-all duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-px bg-gray-400 group-hover:bg-primary mr-3 transition-colors"></span>
-                    <span className="group-hover:translate-x-1 transition-transform transform">
-                      {link.label}
-                    </span>
+                     <span className="w-2 h-px bg-gray-300 group-hover:bg-accent-orange mr-3 transition-colors"></span>
+                     <span className="group-hover:translate-x-1 transition-transform transform">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3 */}
+          {/* Column 3: Services */}
           <div>
-            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Services</h3>
+            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-teal-700">Services</h3>
             <ul className="space-y-3">
               {FOOTER_SERVICES_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     to={link.to}
-                    className="text-gray-600 hover:text-primary transition-all duration-300 flex items-center group"
+                    className="text-gray-600 hover:text-accent-orange transition-all duration-300 flex items-center group"
                   >
-                    <span className="w-2 h-px bg-gray-400 group-hover:bg-primary mr-3 transition-colors"></span>
-                    <span className="group-hover:translate-x-1 transition-transform transform">
-                      {link.label}
-                    </span>
+                     <span className="w-2 h-px bg-gray-300 group-hover:bg-accent-orange mr-3 transition-colors"></span>
+                     <span className="group-hover:translate-x-1 transition-transform transform">{link.label}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Column 4 */}
+          
+          {/* Column 4: Contact Info */}
           <div>
-            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-gray-900">Contact Info</h3>
+            <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-teal-700">Contact Info</h3>
             <ul className="space-y-4 text-gray-600">
-              
               <li className="flex items-start">
-                {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
-                <div className="w-6 h-6 mt-0.5 mr-4 text-primary flex-shrink-0"><MapPinIcon /></div>
-                <span className="text-sm leading-relaxed">{FOOTER_CONTACT_INFO.address}</span>
+                <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-accent-orange"><MapPinIcon /></div>
+                <span className="text-sm">{FOOTER_CONTACT_INFO.address}</span>
               </li>
-
               <li className="flex items-start">
-                 {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
-                <div className="w-6 h-6 mt-0.5 mr-4 text-primary flex-shrink-0"><PhoneIcon /></div>
+                <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-accent-orange"><PhoneIcon /></div>
                 <div>
-                  <a href={`tel:${FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '')}`} className="hover:text-primary hover:underline">
-                    {FOOTER_CONTACT_INFO.phone1}
-                  </a><br/>
-                  <a href={`tel:${FOOTER_CONTACT_INFO.phone2.replace(/[\s+-]/g, '')}`} className="hover:text-primary hover:underline">
-                    {FOOTER_CONTACT_INFO.phone2}
-                  </a>
+                  <a href={`tel:${FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline transition-colors">{FOOTER_CONTACT_INFO.phone1}</a><br/>
+                  <a href={`tel:${FOOTER_CONTACT_INFO.phone2.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline transition-colors">{FOOTER_CONTACT_INFO.phone2}</a>
                 </div>
               </li>
-
               <li className="flex items-start">
-                 {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
-                <div className="w-6 h-6 mt-0.5 mr-4 text-primary flex-shrink-0"><EnvelopeIcon /></div>
-                <a href={mailtoUrl} className="hover:text-primary hover:underline break-all">
-                  {FOOTER_CONTACT_INFO.email}
-                </a>
+                <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-accent-orange"><EnvelopeIcon /></div>
+                <a href={mailtoUrl} className="hover:text-accent-orange hover:underline transition-colors break-all">{FOOTER_CONTACT_INFO.email}</a>
               </li>
-
               <li className="flex items-start">
-                 {/* UPDATED: Added flex-shrink-0 and w-6 h-6 */}
-                <div className="w-6 h-6 mt-0.5 mr-4 text-[#25D366] flex-shrink-0"><WhatsAppIcon /></div>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary hover:underline">
-                  Chat on WhatsApp
-                </a>
+                <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-[#25D366]"><WhatsAppIcon /></div>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-accent-orange hover:underline transition-colors">Chat on WhatsApp</a>
               </li>
             </ul>
           </div>
 
         </div>
       </div>
-
-      {/* Bottom Bar */}
-      {/* UPDATED: Border color to light gray */}
       <div className="relative border-t border-gray-200">
-        <div className="container mx-auto py-6 px-4 text-sm text-center">
-          <span className="text-gray-500">
-            Copyright © 2025 Vehga Inspections Private Limited. All rights reserved.
-          </span>
-
-          <div className="flex justify-center gap-4 mt-2">
-            <Link to="/privacy-policy" className="text-gray-500 hover:text-primary hover:underline">
-              Privacy Policy
-            </Link>
-            <span className="text-gray-400">|</span>
-            <Link to="/terms-of-service" className="text-gray-500 hover:text-primary hover:underline">
-              Terms of Service
-            </Link>
+        <div className="container mx-auto py-6 px-4 sm:px-6 lg:px-8 text-sm">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-4 text-center">
+            <span className="text-gray-500">Copyright © 2025 Vehga Inspections Private Limited. All rights reserved.</span>
+            <div className="flex items-center gap-4">
+                <Link to="/privacy-policy" className="text-gray-500 hover:text-accent-orange hover:underline transition-colors duration-300">Privacy Policy</Link>
+                <span className="text-gray-300">|</span>
+                <Link to="/terms-of-service" className="text-gray-500 hover:text-accent-orange hover:underline transition-colors duration-300">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </div>

@@ -9,7 +9,7 @@ const HowItWorksSection: React.FC = () => {
         <ScrollAnimator>
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold uppercase tracking-widest text-accent-orange mb-2">Our Process</h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-primary-dark">
+            <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-800">
               Getting a Valuation is Easy
             </h3>
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
@@ -23,7 +23,7 @@ const HowItWorksSection: React.FC = () => {
             {/* Connecting Line - drawn with pseudo elements on each card */}
             {HOW_IT_WORKS_STEPS.map((step, index) => (
               <ScrollAnimator key={index} delay={index * 200}>
-                <div className={`relative text-center p-6 pt-12 bg-white rounded-xl shadow-lg border border-gray-200 flex flex-col items-center h-full group
+                <div className={`relative text-center p-6 pt-12 bg-white rounded-xl shadow-lg flex flex-col items-center h-full group
                                 
                                 after:content-[''] after:absolute after:left-1/2 after:-bottom-10 after:h-10 after:w-px after:bg-gray-300
                                 ${index === HOW_IT_WORKS_STEPS.length - 1 ? 'after:hidden' : 'after:md:hidden'}
@@ -37,10 +37,10 @@ const HowItWorksSection: React.FC = () => {
                     0{index + 1}
                   </div>
 
-                  <div className="mb-4 mt-4 w-16 h-16 p-3 text-accent-orange bg-accent-orange/10 rounded-full transition-transform duration-300 group-hover:scale-110">
+                  <div className="mb-4 mt-4 w-12 h-12 text-accent-orange transition-transform duration-300 group-hover:scale-110">
                     {step.icon}
                   </div>
-                  <h4 className="text-xl font-bold text-primary-dark mb-2">{step.title}</h4>
+                  <h4 className="text-xl font-bold text-gray-800 mb-2">{step.title}</h4>
                   <p className="text-gray-500 text-sm leading-relaxed flex-grow">{step.description}</p>
                 </div>
               </ScrollAnimator>

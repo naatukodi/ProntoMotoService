@@ -93,7 +93,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
             placeholder="Search for vehicle models..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="w-full bg-transparent text-lg text-primary-dark placeholder-gray-500 focus:outline-none"
+            className="w-full bg-transparent text-lg text-gray-800 placeholder-gray-500 focus:outline-none"
             autoFocus
           />
           <button onClick={onClose} className="p-2 ml-2 text-gray-500 hover:text-gray-800" aria-label="Close search">
@@ -112,7 +112,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                     onClick={onClose}
                     className="block p-4 hover:bg-gray-100 rounded-md transition-colors"
                   >
-                    <div className="font-bold text-primary-dark">{item.title}</div>
+                    <div className="font-bold text-gray-800">{item.title}</div>
                     <p className="text-sm text-gray-500 line-clamp-2">{item.description}</p>
                     <span className="text-xs font-semibold uppercase text-accent-orange mt-1 inline-block">{item.type}</span>
                   </Link>

@@ -43,10 +43,10 @@ const ServiceCard: React.FC<{ service: typeof CORE_SERVICES[0] }> = ({ service }
   return (
     <div 
       ref={tiltRef}
-      className="card-tilt bg-white p-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl flex flex-col group h-full ring-2 ring-transparent hover:ring-accent-orange"
+      className="card-tilt bg-white p-8 rounded-lg shadow-lg transition-all duration-300 hover:shadow-2xl flex flex-col group h-full"
     >
       <div className="flex flex-col flex-grow">
-        <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-xl bg-accent-orange/10 text-accent-orange transition-all duration-300 group-hover:bg-accent-orange group-hover:text-white group-hover:scale-110 group-hover:rotate-12">
+        <div className="w-16 h-16 mb-6 flex items-center justify-center text-accent-orange transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
           <div className="w-8 h-8 transition-transform duration-300 group-hover:scale-125">
             {service.icon}
           </div>
@@ -101,21 +101,21 @@ const ServicesPage: React.FC = () => {
       {/* Hero Banner Section with Parallax Effect */}
       <section 
         ref={parallaxRef}
-        className="relative text-white bg-cover bg-center"
+        className="py-20 text-white text-center relative overflow-hidden bg-cover bg-center"
         style={{
           backgroundImage: "url('https://res.cloudinary.com/drezjoynu/image/upload/v1762516247/5_-_OUR_SERVICES_-_MOTOR_INSURANCE_uiqh2l.jpg')"
         }}
         aria-label="Close-up of a modern vehicle's dashboard"
       >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/80 to-primary-dark/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-teal-950/70 to-black/80 backdrop-blur-[1px]"></div>
 
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-40 text-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold animate-fadeInDown bg-gradient-to-r from-accent-orange to-orange-400 bg-clip-text text-transparent tracking-tight">
+        <div className="container mx-auto px-4 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-extrabold animate-fadeInDown tracking-tight">
             Our Services
           </h1>
-          <p className="mt-4 text-xl md:text-2xl text-gray-200 animate-fadeInUp max-w-3xl mx-auto" style={{animationDelay: '0.3s'}}>
+          <p className="mt-4 text-lg text-white/90 animate-fadeInUp max-w-3xl mx-auto" style={{animationDelay: '0.3s'}}>
             Comprehensive Valuation Solutions for Every Need
           </p>
         </div>
@@ -131,7 +131,7 @@ const ServicesPage: React.FC = () => {
             {isLoading
               ? Array.from({ length: 3 }).map((_, index) => <SkeletonCard key={index} />)
               : CORE_SERVICES.map((service, index) => (
-              <ScrollAnimator key={index} delay={index * 150}>
+              <ScrollAnimator key={index} delay={index * 150} animation="animate-card-pop-in">
                 <ServiceCard service={service} />
               </ScrollAnimator>
             ))}
@@ -162,7 +162,7 @@ const ServicesPage: React.FC = () => {
                       Your browser does not support the video tag.
                     </video>
                 )}
-                <div className="absolute inset-0 bg-primary-dark/75 backdrop-blur-sm"></div>
+                <div className="absolute inset-0 bg-teal-900/75 backdrop-blur-sm"></div>
             </div>
 
             <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,13 +171,12 @@ const ServicesPage: React.FC = () => {
                 </ScrollAnimator>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {VEHICLE_CATEGORIES.map((category, index) => (
-                        <ScrollAnimator key={index} delay={index * 100}>
+                        <ScrollAnimator key={index} delay={index * 100} animation="animate-card-pop-in">
                             <div 
                                 id={category.id}
-                                className="group bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-accent-green/20 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] border-2 border-transparent hover:border-accent-green/50 text-center h-full flex flex-col"
+                                className="group bg-white/90 backdrop-blur-lg p-8 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-accent-green/20 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] text-center h-full flex flex-col"
                             >
                                 <div className="relative w-24 h-24 mx-auto mb-6 flex items-center justify-center">
-                                    <div className="absolute inset-0 bg-accent-green/10 rounded-full transition-transform duration-300 group-hover:scale-110"></div>
                                     <div className="relative text-accent-green w-14 h-14 transition-transform duration-300 group-hover:scale-125">
                                         {category.icon}
                                     </div>

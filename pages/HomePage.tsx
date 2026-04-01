@@ -8,7 +8,6 @@ import { TechnologyIcon, PrecisionIcon, KnowledgeIcon } from '../components/icon
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import HowItWorksSection from '../components/HowItWorksSection';
-import TestimonialsSection from '../components/TestimonialsSection';
 
 const AnimatedTechIcon: React.FC<{icon: React.ReactNode, positionClasses: string, delay: string}> = ({ icon, positionClasses, delay }) => (
     <div 
@@ -190,9 +189,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Testimonials Section */}
-      <TestimonialsSection />
     </div>
   );
 };

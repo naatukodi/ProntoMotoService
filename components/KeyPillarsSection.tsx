@@ -50,12 +50,12 @@ const PillarCard: React.FC<{ pillar: typeof KEY_PILLARS[0] }> = ({ pillar }) => 
         ref={tiltRef}
         className="card-tilt bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl group h-full"
       >
-        <div className="w-16 h-16 mb-6 flex items-center justify-center rounded-xl bg-accent-orange/10 text-accent-orange transition-all duration-300 group-hover:bg-accent-orange group-hover:text-white group-hover:scale-110 group-hover:rotate-12">
+        <div className="w-16 h-16 mb-6 flex items-center justify-center text-accent-orange transition-all duration-300 group-hover:scale-110 group-hover:rotate-12">
           <div className="w-8 h-8 transition-transform duration-300 group-hover:scale-125">
             {pillar.icon}
           </div>
         </div>
-        <h3 className="text-xl font-bold text-primary-dark mb-3">{pillar.title}</h3>
+        <h3 className="text-xl font-bold text-gray-800 mb-3">{pillar.title}</h3>
         <p className="text-gray-600 leading-relaxed">{pillar.description}</p>
       </div>
   )
@@ -72,8 +72,8 @@ const KeyPillarsSection: React.FC<KeyPillarsSectionProps> = ({
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {title && (
             <div className="text-center mb-16">
-              <ScrollAnimator>
-                <h2 className="text-3xl font-extrabold text-primary-dark tracking-tight sm:text-4xl">
+              <ScrollAnimator delay={150}>
+                <h2 className="text-3xl font-extrabold text-gray-800 tracking-tight sm:text-4xl">
                     {title}
                 </h2>
               </ScrollAnimator>
@@ -91,7 +91,7 @@ const KeyPillarsSection: React.FC<KeyPillarsSectionProps> = ({
           {loading 
             ? Array.from({ length: 4 }).map((_, index) => <SkeletonCard key={index} />)
             : KEY_PILLARS.map((pillar, index) => (
-                <ScrollAnimator key={index} delay={index * 150}>
+                <ScrollAnimator key={index} delay={index * 150} animation="animate-card-pop-in">
                   <PillarCard pillar={pillar} />
                 </ScrollAnimator>
               ))}
