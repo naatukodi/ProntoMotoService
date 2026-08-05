@@ -3,12 +3,31 @@ import React, { useEffect, useRef } from 'react';
 // Since Leaflet is loaded from a CDN, we declare it to satisfy TypeScript
 declare const L: any;
 
+const OFFICES: {
+  name: string;
+  position: [number, number];
+  addressHtml: string;
+  phone: string;
+}[] = [
+  {
+    name: 'Head Office',
+    // Kakinada, Andhra Pradesh
+    position: [16.9891, 82.2475],
+    addressHtml: 'D.No: 16-23-3/8, Pallamraju Nagar,<br>Kakinada, A.P - 533005',
+    phone: '+91 98852 55567',
+  },
+  {
+    name: 'Mumbai Office',
+    // Sector 35D, Kharghar, Navi Mumbai (approximate sector-level pin)
+    position: [19.0714, 73.0781],
+    addressHtml: '602, Krishiv Kripa, Sector 35D,<br>Kharghar, Navi Mumbai - 410210',
+    phone: '+91 63096 45378',
+  },
+];
+
 const InteractiveMap: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
-
-  // Kakinada, Andhra Pradesh Coordinates
-  const position: [number, number] = [16.9891, 82.2475];
 
   useEffect(() => {
     // Check if Leaflet is loaded to prevent crash on script failure
@@ -27,7 +46,7 @@ const InteractiveMap: React.FC = () => {
     // Prevent map from re-initializing on re-renders
     if (mapContainerRef.current && !mapInstanceRef.current) {
       // Initialize map
-      const map = L.map(mapContainerRef.current).setView(position, 14);
+      const map = L.map(mapContainerRef.current);
       mapInstanceRef.current = map;
 
       // Add tile layer from OpenStreetMap
@@ -43,31 +62,38 @@ const InteractiveMap: React.FC = () => {
           popupAnchor: [0, -45] // point from which the popup should open relative to the iconAnchor
       });
 
-      // Add marker
-      L.marker(position, { icon: customIcon }).addTo(map)
-        .bindPopup(`
-          <div style="font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; max-width: 200px;">
-            <h3 style="font-weight: 700; font-size: 16px; margin: 0 0 8px 0; color: #2D3748;">Vehga Inspections Private Limited</h3>
-            <p style="margin: 0 0 10px 0; color: #4A5568;">D.No: 16-23-3/8, Pallamraju Nagar,<br>Kakinada, A.P - 533005</p>
-            <div style="margin-bottom: 12px; text-align: left; border-top: 1px solid #e2e8f0; padding-top: 10px;">
-              <p style="margin: 0; color: #4A5568;"><strong style="color: #2D3748;">Hours:</strong> Mon - Sat, 9am - 6pm</p>
+      // Add a marker with popup for each office
+      OFFICES.forEach((office) => {
+        L.marker(office.position, { icon: customIcon }).addTo(map)
+          .bindPopup(`
+            <div style="font-family: Inter, sans-serif; font-size: 14px; line-height: 1.6; max-width: 220px;">
+              <h3 style="font-weight: 700; font-size: 16px; margin: 0 0 4px 0; color: #2D3748;">Vehga Inspections Private Limited</h3>
+              <p style="margin: 0 0 8px 0; font-weight: 600; color: #249094;">${office.name}</p>
+              <p style="margin: 0 0 10px 0; color: #4A5568;">${office.addressHtml}</p>
+              <div style="margin-bottom: 12px; text-align: left; border-top: 1px solid #e2e8f0; padding-top: 10px;">
+                <p style="margin: 0; color: #4A5568;"><strong style="color: #2D3748;">Phone:</strong> <a href="tel:${office.phone.replace(/[\s-]/g, '')}" style="color: #249094; text-decoration: none;">${office.phone}</a></p>
+                <p style="margin: 0; color: #4A5568;"><strong style="color: #2D3748;">Hours:</strong> Mon - Sat, 9am - 6pm</p>
+              </div>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=${office.position[0]},${office.position[1]}"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display: block; width: 100%; box-sizing: border-box; padding: 8px 12px; background-color: #249094; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; text-align: center;"
+              >
+                Get Directions
+              </a>
             </div>
-            <a 
-              href="https://www.google.com/maps/dir/?api=1&destination=16.9891,82.2475" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              style="display: block; width: 100%; box-sizing: border-box; padding: 8px 12px; background-color: #249094; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; text-align: center;"
-            >
-              Get Directions
-            </a>
-          </div>
-        `, { minWidth: 220 })
-        .openPopup();
+          `, { minWidth: 220 });
+      });
+
+      // Fit the view so both offices are visible
+      const bounds = L.latLngBounds(OFFICES.map((office) => office.position));
+      map.fitBounds(bounds, { padding: [60, 60] });
     }
   }, []);
 
   return (
-    <div ref={mapContainerRef} className="w-full h-[500px] z-0" aria-label="Map showing company location in Kakinada"></div>
+    <div ref={mapContainerRef} className="w-full h-[500px] z-0" aria-label="Map showing company offices in Kakinada and Navi Mumbai"></div>
   );
 };
 

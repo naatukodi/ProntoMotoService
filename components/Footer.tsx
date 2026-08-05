@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
     }
   };
 
-  const phoneNumber = FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '');
+  const phoneNumber = FOOTER_CONTACT_INFO.whatsapp.replace(/[\s+-]/g, '');
   const message = encodeURIComponent("Hello! I'm interested in your vehicle valuation services.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
@@ -114,15 +114,21 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold tracking-wider uppercase mb-4 text-teal-700">Contact Info</h3>
             <ul className="space-y-4 text-gray-600">
-              <li className="flex items-start">
-                <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-accent-orange"><MapPinIcon /></div>
-                <span className="text-sm">{FOOTER_CONTACT_INFO.address}</span>
-              </li>
+              {FOOTER_CONTACT_INFO.addresses.map((office) => (
+                <li key={office.label} className="flex items-start">
+                  <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-accent-orange"><MapPinIcon /></div>
+                  <span className="text-sm"><span className="font-semibold text-gray-800">{office.label}:</span> {office.text}</span>
+                </li>
+              ))}
               <li className="flex items-start">
                 <div className="w-5 h-5 mt-1 mr-4 flex-shrink-0 text-accent-orange"><PhoneIcon /></div>
                 <div>
-                  <a href={`tel:${FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline transition-colors">{FOOTER_CONTACT_INFO.phone1}</a><br/>
-                  <a href={`tel:${FOOTER_CONTACT_INFO.phone2.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline transition-colors">{FOOTER_CONTACT_INFO.phone2}</a>
+                  {FOOTER_CONTACT_INFO.phones.map((phone) => (
+                    <React.Fragment key={phone.text}>
+                      <a href={`tel:${phone.text.replace(/[\s+-]/g, '')}`} className="hover:text-accent-orange hover:underline transition-colors">{phone.text}</a>
+                      <span className="text-xs text-gray-500"> ({phone.label})</span><br/>
+                    </React.Fragment>
+                  ))}
                 </div>
               </li>
               <li className="flex items-start">

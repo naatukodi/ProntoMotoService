@@ -172,22 +172,29 @@ export const TESTIMONIALS = [
   }
 ];
 
-export const CONTACT_DETAILS = [
+type ContactDetailLine = { text: string; href?: string; isLabel?: boolean };
+
+export const CONTACT_DETAILS: { icon: React.ReactNode; title: string; lines: ContactDetailLine[] }[] = [
     {
         icon: <MapPinIcon />,
         title: "Address",
         lines: [
+            { text: "Head Office", isLabel: true },
             { text: "Srimati Vasamsetti Parvatidevi Govinda Rajan," },
             { text: "D.No: 16-23-3/8, Pallamraju Nagar," },
-            { text: "Kakinada, A.P - 533005" }
+            { text: "Kakinada, A.P - 533005" },
+            { text: "Mumbai Office", isLabel: true },
+            { text: "602, Krishiv Kripa, Sector 35D," },
+            { text: "Kharghar, Navi Mumbai - 410210" }
         ]
     },
     {
         icon: <PhoneIcon />,
         title: "Phone",
         lines: [
-            { text: "+91 98852 55567", href: "tel:+919885255567" },
-            { text: "+91 0884 - 3596574", href: "tel:+9108843596574" }
+            { text: "+91 98852 55567 (Head Office)", href: "tel:+919885255567" },
+            { text: "+91 0884 - 3596574 (Head Office)", href: "tel:+9108843596574" },
+            { text: "+91 63096 45378 (Mumbai Office)", href: "tel:+916309645378" }
         ]
     },
     {
@@ -213,9 +220,16 @@ export const COMPANY_STATS = [
 ];
 
 export const FOOTER_CONTACT_INFO = {
-  address: "D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, A.P - 533005",
-  phone1: "+91 98852 55567",
-  phone2: "+91 0884 - 3596574",
+  addresses: [
+    { label: "Head Office", text: "D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, A.P - 533005" },
+    { label: "Mumbai Office", text: "602, Krishiv Kripa, Sector 35D, Kharghar, Navi Mumbai - 410210" },
+  ],
+  phones: [
+    { label: "Head Office", text: "+91 98852 55567" },
+    { label: "Head Office", text: "+91 0884 - 3596574" },
+    { label: "Mumbai Office", text: "+91 63096 45378" },
+  ],
+  whatsapp: "+91 98852 55567",
   email: "connect@vehga.in",
 };
 

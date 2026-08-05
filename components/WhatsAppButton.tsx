@@ -11,7 +11,7 @@ const WhatsAppButton: React.FC = () => {
     return () => clearTimeout(mountTimer);
   }, []);
 
-  const phoneNumber = FOOTER_CONTACT_INFO.phone1.replace(/[\s+-]/g, '');
+  const phoneNumber = FOOTER_CONTACT_INFO.whatsapp.replace(/[\s+-]/g, '');
   const message = encodeURIComponent("Hello! I saw your website and I'm interested in your services.");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 

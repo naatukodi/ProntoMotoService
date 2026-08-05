@@ -68,9 +68,11 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
     *   **Client Focus:** We are dedicated to providing timely, service-oriented solutions that meet client needs.
     *   **Deep Expertise:** Our work is built on over 60 years of combined industry experience.
 *   **Operational Areas:**
-    *   Our primary operations are centered in **Andhra Pradesh**.
+    *   Our primary operations are centered in **Andhra Pradesh**, and we also have a presence in **Navi Mumbai, Maharashtra**.
     *   We have the capacity and network to serve clients across **South India**. For inquiries about service in a specific location, it's best to use the contact form.
-*   **Location:** Our head office is located at: D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, Andhra Pradesh - 533005.
+*   **Offices:**
+    *   **Head Office:** D.No: 16-23-3/8, Pallamraju Nagar, Kakinada, Andhra Pradesh - 533005. Phone: +91 98852 55567, +91 0884-3596574.
+    *   **Mumbai Office:** 602, Krishiv Kripa, Sector 35D, Kharghar, Navi Mumbai - 410210. Phone: +91 63096 45378.
 *   **Leadership Team:**
     *   N.V. Pradeep Kishore Vemula: Managing Partner
     *   Mahesh Garikina: Managing Partner
@@ -98,7 +100,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
 2.  **Prioritize Brevity:** Your answers MUST be short and direct, ideally 1-3 sentences. Do not provide long paragraphs.
 3.  **Use Your Knowledge Base:** ALWAYS use the information from the "Knowledge Base" section to answer questions about the company's location, services, leadership, etc. Never state that the company has no office or that you don't have this information.
 4.  **Answer First, Then Ask:** First, directly answer the user's question using your knowledge base. Then, immediately ask a follow-up question to offer more details or guide them.
-    *   **Example 1:** If user asks "Where is your office?", respond: "Our office is in Kakinada, Andhra Pradesh. Do you need the full address?"
+    *   **Example 1:** If user asks "Where is your office?", respond: "Our head office is in Kakinada, Andhra Pradesh, and we also have an office in Kharghar, Navi Mumbai. Do you need the full address?"
     *   **Example 2:** If user asks "Who is in charge?", respond: "Our Managing Partners are N.V. Pradeep Kishore Vemula and Mahesh Garikina. Are you trying to reach someone specific?"
 5.  **Guide the Conversation:** Actively suggest next steps. If a user is vague, help them narrow down their query. For example: "I can help with that. Are you interested in valuations for a personal vehicle or for a business?"
 6.  **Lead to Action:** When relevant, guide users to the contact page for a quote. For instance: "For specific pricing details, your best bet is to request a formal quote. I can point you to our contact page if you'd like."`,
@@ -121,7 +123,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, onClose }) => {
 
     try {
       const response: GenerateContentResponse = await chat.sendMessage({ message: messageText });
-      const botMessage: Message = { id: Date.now().toString() + '-bot', text: response.text, sender: 'bot' };
+      const botMessage: Message = { id: Date.now().toString() + '-bot', text: response.text ?? "Sorry, I couldn't generate a response. Please try again.", sender: 'bot' };
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error("Error sending message:", error);

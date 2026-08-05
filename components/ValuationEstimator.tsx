@@ -77,6 +77,10 @@ const ValuationEstimator: React.FC = () => {
         }
       });
       
+      if (!response.text) {
+        throw new Error('Gemini API returned an empty response.');
+      }
+
       const jsonStr = response.text.trim();
       const parsedResult: ValuationResult = JSON.parse(jsonStr);
       setResult(parsedResult);

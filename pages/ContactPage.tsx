@@ -144,6 +144,8 @@ const ContactPage: React.FC = () => {
                                     {detail.lines.map((line, lineIndex) => (
                                         line.href ? (
                                             <a key={lineIndex} href={line.href} className="block text-gray-700 hover:text-teal-700 hover:underline transition-colors">{line.text}</a>
+                                        ) : line.isLabel ? (
+                                            <p key={lineIndex} className={`font-bold text-teal-700 uppercase tracking-wider text-sm ${lineIndex > 0 ? 'pt-3' : ''}`}>{line.text}</p>
                                         ) : (
                                             <p key={lineIndex} className="text-gray-700">{line.text}</p>
                                         )
