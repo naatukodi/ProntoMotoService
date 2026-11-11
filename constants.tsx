@@ -122,7 +122,9 @@ export const HOW_IT_WORKS_STEPS = [
 export const CLIENTS: { name: string, logoUrl: string }[] = [
     { name: 'ICICI Bank', logoUrl: 'https://logoeps.com/wp-content/uploads/2012/10/icici-bank-logo-vector.png' },
     { name: 'Union Bank of India', logoUrl: 'https://res.cloudinary.com/drezjoynu/image/upload/v1762506985/UBI_ra2igc.jpg' },
-    { name: 'Bijay Finance', logoUrl: 'https://lh6.googleusercontent.com/proxy/6__MJgJhV8w10gC44Lx0_9Khz1iNRiAGhe5MknvacWVsE__6bnNz4Gwxx-xDB5TV8yfF4APRI1PqbPJVyVNfV4fBD6JF' },
+    // Served from public/clients so it can't break when another site moves its file.
+    // Source: bijayfinance.com/assets/bijay-finance-logo.png, trimmed and resized.
+    { name: 'Bijay Finance', logoUrl: '/clients/bijay-finance.png' },
     { name: 'Muthoot Money', logoUrl: 'https://i.pinimg.com/736x/33/14/78/3314787c6bb9e2d11e9471c3d5b7fb2c.jpg' },
     { name: 'Sakthi Finance', logoUrl: 'https://www.sakthifinance.com/sakthi-finance-ncd-2024-apply/wp-content/uploads/2024/01/logo.png' },
     { name: 'IndusInd Bank', logoUrl: 'https://images.moneycontrol.com/static-mcnews/2019/10/IndusInd.jpg?impolicy=website&width=1600&height=900' },
@@ -232,6 +234,13 @@ export const FOOTER_CONTACT_INFO = {
   whatsapp: "+91 98852 55567",
   email: "connect@vehga.in",
 };
+
+// Web3Forms access key for the Careers form (web3forms.com). Every application is
+// emailed to the inbox this key was created with, which should be connect@vehga.in.
+// The key is public by design: it can only deliver to that one inbox, so it is safe
+// in the browser bundle. While it is empty the form does not pretend to submit; it
+// tells the applicant to call or WhatsApp instead.
+export const CAREERS_FORM_ACCESS_KEY = 'ba3bb8ae-399a-43a2-a5fd-ed995fc090d4';
 
 export const FOOTER_QUICK_LINKS = [
   { to: '/', label: 'Home' },

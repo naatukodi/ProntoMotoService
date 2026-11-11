@@ -10,7 +10,6 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfServicePage from './pages/TermsOfServicePage';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import ScrollToTop from './components/ScrollToTop';
-import AnimatedFavicon from './components/AnimatedFavicon';
 import Chatbot from './components/Chatbot';
 import ChatbotFAB from './components/ChatbotFAB';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -22,7 +21,6 @@ const App: React.FC = () => {
 
   return (
       <HashRouter>
-        <AnimatedFavicon />
         <ScrollToTop />
         <div className="flex flex-col min-h-screen text-gray-800 font-sans animate-pageFadeIn">
           <Header />
